@@ -38,3 +38,15 @@ highest=np.max(marks)
 print(highest)
 lowest=np.min(marks)
 print(lowest)
+
+student_average=np.mean(marks,axis=1)
+print(student_average)
+
+passed=student_average>=50
+print(passed)
+
+passed_students = student_average[student_average >= 50]
+print(passed_students)
+
+best_student_index = np.argmax(student_average)
+print(best_student_index)
