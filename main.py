@@ -50,3 +50,48 @@ print(passed_students)
 
 best_student_index = np.argmax(student_average)
 print(best_student_index)
+def calculate_totals(marks):
+    return np.sum(marks, axis=1)
+totals = calculate_totals(marks)
+def calculate_averages(marks):
+    return np.mean(marks, axis=1)
+def analyze_pass_fail(averages):
+    passed = averages >= 50
+    passed_count = np.sum(passed)
+    failed_count = np.sum(averages < 50)
+
+    return passed, passed_count, failed_count
+def analyze_subjects(marks):
+    subject_average = np.mean(marks, axis=0)
+    subject_highest = np.max(marks, axis=0)
+
+    return subject_average, subject_highest
+
+totals = calculate_totals(marks)
+
+averages = calculate_averages(marks)
+
+passed, passed_count, failed_count = analyze_pass_fail(averages)
+
+subject_average, subject_highest = analyze_subjects(marks)
+
+
+print("===== STUDENT MARKS ANALYZER =====")
+
+print("\nStudent totals:")
+print(totals)
+
+print("\nStudent averages:")
+print(averages)
+
+print("\nPass/Fail:")
+print(passed)
+
+print("\nPassed students:", passed_count)
+print("Failed students:", failed_count)
+
+print("\nSubject averages:")
+print(subject_average)
+
+print("\nHighest mark in each subject:")
+print(subject_highest)
