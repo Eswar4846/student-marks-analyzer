@@ -95,3 +95,49 @@ print(subject_average)
 
 print("\nHighest mark in each subject:")
 print(subject_highest)
+
+num_students = int(input("Enter number of students: "))
+all_marks = []
+for i in range(num_students):
+    print(f"\nStudent {i + 1}")
+
+    student_marks = []
+
+    for j in range(3):
+        mark = float(input(f"Enter mark for subject {j + 1}: "))
+        student_marks.append(mark)
+    all_marks.append(student_marks)
+marks=np.array(all_marks)
+
+totals = calculate_totals(marks)
+
+averages = calculate_averages(marks)
+
+passed, passed_count, failed_count = analyze_pass_fail(averages)
+
+subject_average, subject_highest = analyze_subjects(marks)
+
+
+# Output
+print("\n===== STUDENT MARKS ANALYZER =====")
+
+print("\nMarks:")
+print(marks)
+
+print("\nStudent totals:")
+print(totals)
+
+print("\nStudent averages:")
+print(averages)
+
+print("\nPass/Fail:")
+print(passed)
+
+print("\nPassed students:", passed_count)
+print("Failed students:", failed_count)
+
+print("\nSubject averages:")
+print(subject_average)
+
+print("\nHighest mark in each subject:")
+print(subject_highest)
