@@ -102,11 +102,19 @@ for i in range(num_students):
     print(f"\nStudent {i + 1}")
 
     student_marks = []
-
-    for j in range(3):
-        mark = float(input(f"Enter mark for subject {j + 1}: "))
-        student_marks.append(mark)
-    all_marks.append(student_marks)
+for j in range(3):
+    while True:
+        try:
+            mark = float(
+                input(f"Enter mark for subject {j + 1}: ")
+            )
+            if 0 <= mark <= 100:
+                break
+            print("Enter a mark between 0 and 100.")
+        except ValueError:
+            print("Please enter a valid number.")
+    student_marks.append(mark)
+    
 marks=np.array(all_marks)
 
 totals = calculate_totals(marks)
