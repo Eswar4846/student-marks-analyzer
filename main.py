@@ -174,3 +174,12 @@ print(
     "Best average:",
     round(averages[best_student_index], 2)
 )
+ranking_indices = np.argsort(averages)[::-1]
+
+print("\n===== STUDENT RANKING =====")
+
+for rank, index in enumerate(ranking_indices, start=1):
+    print(
+        f"{rank}. {names[index]} → "
+        f"Average: {averages[index]:.2f}"
+    )
